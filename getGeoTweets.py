@@ -27,7 +27,7 @@ auth.set_access_token(access_token, access_token_secret)
 api = tweepy.API(auth)
 
 start = datetime.utcnow()
-write = codecs.open(storePath+project+str(start.year)+'_'+str(start.month)+'_'+str(start.day)+".json",'a','utf-8')
+write = codecs.open(storePath+project+'_'+str(start.year)+'_'+str(start.month)+'_'+str(start.day)+".json",'a','utf-8')
 
 class StdOutListener(tweepy.StreamListener):
 
@@ -44,7 +44,7 @@ class StdOutListener(tweepy.StreamListener):
         if(end.day != start.day):
             start = end
             write.close()
-            write = codecs.open(storePath+project+str(start.year)+'_'+str(start.month)+'_'+str(start.day)+".json",'a','utf-8')
+            write = codecs.open(storePath+project+'_'+str(start.year)+'_'+str(start.month)+'_'+str(start.day)+".json",'a','utf-8')
         return True
 
     def on_error(self, status):
